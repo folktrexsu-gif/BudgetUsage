@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Usage Widget</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="widget-container">
+        <div class="widget-header">
+            <h2>Budget Usage</h2>
+            <button id="refreshBtn" class="refresh-btn" title="Refresh data">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 4v6h6M15 12v-6h-6"/>
+                    <path d="M2 7a6 6 0 0110.236-3.236"/>
+                    <path d="M14 9a6 6 0 01-10.236 3.236"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading budget data...</p>
+        </div>
+
+        <div id="content" class="widget-content" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Paid Payment</div>
+                    <div class="stat-value" id="paidPaymentValue">¥0</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Total Budget</div>
+                    <div class="stat-value" id="totalBudgetValue">¥0</div>
+                </div>
+
+                <div class="stat-card percentage">
+                    <div class="stat-label">Usage %</div>
+                    <div class="stat-value" id="percentageValue">0%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timestamp">
+                Last updated: <span id="timestamp">-</span>
+            </div>
+        </div>
+
+        <div id="error" class="error-message" style="display: none;">
+            <p id="errorText">An error occurred. Please try again.</p>
+        </div>
+    </div>
+
+    <script src="widget.js"></script>
+</body>
+</html>
